@@ -7,11 +7,12 @@ main:
     ecall
     mv t1, a0
     
-    li t2, 6
-    li t3, 3
+    slli s0, t0, 3
+    sub s0, s0, t0
+    sub s0, s0, t0
     
-    mul s0, t0, t2
-    mul s1, t1, t3
+    slli s1, t1, 2
+    sub s1, s1, t1
     
     sub a0, s0, s1
     li a7, 1
