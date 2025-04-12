@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void swap(int* f, int* s) {
+    *f ^= *s;
+    *s ^= *f;
+    *f ^= *s;
+}
+
+int main() {
+    int* d = NULL;
+    int v, count = 0, c = 0;
+    scanf("%d", &v);
+    while (v != 0) {
+        d = realloc(d, (++c) * sizeof(int));
+        d[count++] = v;
+        scanf("%d", &v);
+    }
+
+    for (int i = 0; i < c / 2; i++) {
+        swap(&d[i], &d[c - i - 1]);
+    }
+
+    for (int i = 0; i < c; i++) {
+        printf("%d ", d[i]);
+    }
+
+    free(d);
+
+    return 0;
+}
