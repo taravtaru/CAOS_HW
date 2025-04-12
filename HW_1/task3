@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void swap(int* f, int* s) {
+    *f ^= *s;
+    *s ^= *f;
+    *f ^= *s;
+}
+
+int main() {
+    int rows, cols;
+    scanf("%d %d", &rows, &cols);
+
+    int** matrix = calloc(rows, sizeof(int*));
+    for (int r = 0; r < rows; r++) {
+        matrix[r] = calloc(cols, sizeof(int));
+    }
+
+    for (int r = 0; r < rows; r++) {
+        for (int c = 0; c < cols; c++) {
+            scanf("%d", &matrix[r][c]);
+        }
+    }
+
+    int** trans = calloc(cols, sizeof(int*));
+    for (int c = 0; c < cols; c++) {
+        trans[c] = calloc(rows, sizeof(int));
+    }
+
+    for (int c = 0; c < cols; c++) {
+        for (int r = 0
